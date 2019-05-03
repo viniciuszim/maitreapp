@@ -8,6 +8,6 @@ export const Container = styled.div`
   justify-content: center;
 
   h1 {
-    color: #fff;
+    color: var(--white-color);
   }
 `;

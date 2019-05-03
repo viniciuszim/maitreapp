@@ -11,7 +11,7 @@ const Sidebar = () => (
         <h5>Logo 01</h5>
       </MainLogo>
       <ClientLogo>
-        <h5>Logo 02</h5>
+        <h3>Logo 02</h3>
       </ClientLogo>
       <div>
         <Nav>

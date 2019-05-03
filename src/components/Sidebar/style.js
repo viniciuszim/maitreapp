@@ -3,8 +3,8 @@ import styled from 'styled-components';
 export const Container = styled.aside`
   height: 100%;
   width: 200px;
-  background: #27282c;
-  color: #b3b3b3;
+  background: var(--menu-color);
+  color: var(--light-color);
 
   display: flex;
   flex-direction: column;
@@ -13,12 +13,21 @@ export const Container = styled.aside`
 
 export const MainLogo = styled.div`
   height: 80px;
-  background: #0d0d0f;
+  background: var(--black-color);
 `;
 
 export const ClientLogo = styled.div`
   height: 80px;
-  background: #202124;
+  background: var(--primaryDark-color);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h3 {
+    color: var(--white-color);
+  }
 `;
 
 export const Nav = styled.ul`
@@ -27,7 +36,7 @@ export const Nav = styled.ul`
   li {
     padding: 10px;
     border-bottom: 1px solid;
-    border-bottom-color: #212124;
+    border-bottom-color: var(--menuBorderBottom-color);
 
     a {
       color: inherit;
@@ -36,7 +45,7 @@ export const Nav = styled.ul`
       line-height: 50px;
 
       &:hover {
-        color: #965352;
+        color: var(--menuTextHover-color);
       }
     }
 

@@ -5,11 +5,11 @@ import { BrowserRouter } from 'react-router-dom';
 import './config/reactotron';
 
 import GlobalStyle from './styles/global';
+import ColorsStyle from './styles/colors';
 
 import { Wrapper, Container, Content } from './styles/components';
 
 import Sidebar from './components/Sidebar';
-import Header from './components/Header';
 
 import Routes from './routes';
 import store from './store';
@@ -19,12 +19,12 @@ function App() {
     <Provider store={store}>
       <BrowserRouter>
         <Fragment>
+          <ColorsStyle />
           <GlobalStyle />
           <Wrapper>
             <Container>
               <Sidebar />
               <Content>
-                <Header />
                 <Routes />
               </Content>
             </Container>
