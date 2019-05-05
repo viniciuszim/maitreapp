@@ -9,9 +9,10 @@ export default createGlobalStyle`
     --dark-color: rgb(102,102,102);
     --darker-color: rgb(51,51,51);
     --black-color: #0d0d0f;
-    --red-color: rgb(255,0,0);
-    --green-color: rgb(0,128,0);
+    --red-color: rgb(211, 108, 103);
+    --green-color: rgb(101, 173, 120);
     --greenLight-color: rgb(51,153,51);
+    --yellow-color: rgb(255, 253, 84);
 
     --primary-color: #313139;
     --primaryDark-color: #202124;

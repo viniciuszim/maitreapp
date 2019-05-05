@@ -4,31 +4,48 @@ import {
   Container, MainLogo, ClientLogo, Nav,
 } from './style';
 
+import Logo from '../../assets/images/maitre-logo.png';
+
 const Sidebar = () => (
   <Container>
     <div>
       <MainLogo>
-        <h5>Logo 01</h5>
+        <img src={Logo} alt="Logo" />
       </MainLogo>
       <ClientLogo>
-        <h3>Logo 02</h3>
+        <h3>LOGO CLIENTE</h3>
       </ClientLogo>
       <div>
         <Nav>
           <li>
-            <a href="">CARDÁPIO</a>
+            <a href="">
+              <i className="fas fa-utensils" />
+              CARDÁPIO
+            </a>
           </li>
           <li>
-            <a href="">BEBIDAS</a>
+            <a href="">
+              <i className="fa fa-glass" />
+              BEBIDAS
+            </a>
           </li>
           <li>
-            <a href="">CARTA DE VINHOS</a>
+            <a href="">
+              <i className="fas fa-wine-bottle" />
+              CARTA DE VINHOS
+            </a>
           </li>
           <li>
-            <a href="">SOBREMESAS</a>
+            <a href="">
+              <i className="fas fa-ice-cream" />
+              SOBREMESAS
+            </a>
           </li>
           <li>
-            <a href="">POLÍTICA DA CASA</a>
+            <a href="">
+              <i className="fa fa-handshake-o" />
+              POLÍTICA DA CASA
+            </a>
           </li>
         </Nav>
       </div>
