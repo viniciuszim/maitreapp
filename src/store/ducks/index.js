@@ -1,8 +1,7 @@
 import { combineReducers } from 'redux';
 
-// import favorites from './favorites';
+import tables from './tables';
 
 export default combineReducers({
-  // favorites,
-  example: () => [],
+  tables,
 });
