@@ -24,6 +24,7 @@ export default function tables(state = initialState, action) {
       };
     case Types.GET_ALL_TABLES_SUCCESS:
       return {
+        ...state,
         data: [...action.payload.tables],
         loading: false,
         error: '',

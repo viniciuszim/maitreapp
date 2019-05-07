@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
+import Button from '@material-ui/core/Button';
+
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Creators as TablesActions } from '../../store/ducks/tables';
@@ -22,6 +24,12 @@ class Welcome extends Component {
 
   componentDidUpdate() {}
 
+  handleFollowOrders = () => {};
+
+  handleFollowBills = () => {};
+
+  handleCancelOrders = () => {};
+
   render() {
     const { tables } = this.props;
     const { tableSelected } = tables;
@@ -30,23 +38,38 @@ class Welcome extends Component {
         <Header title="Principal" />
         <Container>
           <TableSelected>
-            {!tableSelected ? <h2>Selecione uma mesa!</h2> : <h2>Mesa X</h2>}
+            {!tableSelected ? <h2>Selecione uma mesa!</h2> : <h2>{tableSelected.name}</h2>}
           </TableSelected>
           {!!tableSelected && (
             <Fragment>
               <ButtonsContainer>
-                <button type="button" className="button greenButton">
+                <Button
+                  variant="contained"
+                  color="primary"
+                  className="button greenButton"
+                  onClick={() => this.handleFollowOrders()}
+                >
                   <i className="fas fa-plus-circle" />
                   ACOMPANHE SEU PEDIDO
-                </button>
-                <button type="button" className="button greenButton">
+                </Button>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  className="button greenButton"
+                  onClick={() => this.handleFollowBills()}
+                >
                   <i className="fas fa-dollar-sign" />
                   ACOMPANHE SUA CONTA
-                </button>
-                <button type="button" className="button redButton">
+                </Button>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  className="button redButton"
+                  onClick={() => this.handleCancelOrders()}
+                >
                   <i className="fas fa-minus-circle" />
                   CANCELAR
-                </button>
+                </Button>
               </ButtonsContainer>
               <OrderContainer />
             </Fragment>

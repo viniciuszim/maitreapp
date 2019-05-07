@@ -36,6 +36,22 @@ const GlobalStyle = createGlobalStyle`
     color: var(--white-color) !important;
   }
 
+  .select label {
+    color: var(--white-color) !important;
+  }
+  .select select {
+    color: var(--white-color) !important;
+  }
+  .select svg {
+    color: var(--white-color) !important;
+  }
+  .select .MuiInputBase-root-36::before {
+    border-bottom: 1px solid var(--white-color) !important;
+  }
+  .select .MuiInputBase-root-36::after {
+    border-bottom: 1px solid var(--secundary-color) !important;
+  }
+
   .button {
     margin-right: '20px' !important;
     margin-left: '20px' !important;
