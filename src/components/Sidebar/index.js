@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
+
 import {
   Container, MainLogo, ClientLogo, Nav,
 } from './style';
@@ -10,9 +12,9 @@ const Sidebar = () => (
   <Container>
     <div>
       <MainLogo>
-        <a href="/">
+        <Link to="/">
           <img src={Logo} alt="Logo" />
-        </a>
+        </Link>
       </MainLogo>
       <ClientLogo>
         <h3>LOGO CLIENTE</h3>
@@ -20,34 +22,34 @@ const Sidebar = () => (
       <div>
         <Nav>
           <li>
-            <a href="">
+            <Link to="/">
               <i className="fas fa-utensils" />
               CARDÁPIO
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="">
+            <Link to="/">
               <i className="fa fa-glass" />
               BEBIDAS
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="">
+            <Link to="/">
               <i className="fas fa-wine-bottle" />
               CARTA DE VINHOS
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="">
+            <Link to="/">
               <i className="fas fa-ice-cream" />
               SOBREMESAS
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="">
+            <Link to="/">
               <i className="fa fa-handshake-o" />
               POLÍTICA DA CASA
-            </a>
+            </Link>
           </li>
         </Nav>
       </div>

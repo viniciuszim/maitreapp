@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { Link } from 'react-router-dom';
+
 import { Container, LeftSide, RightSide } from './styles';
 
 const Header = ({ title }) => (
@@ -10,9 +12,9 @@ const Header = ({ title }) => (
       <h1>{title}</h1>
     </LeftSide>
     <RightSide>
-      <a href="configuracoes">
+      <Link to="/configuracoes">
         <i className="fa fa-gear" />
-      </a>
+      </Link>
     </RightSide>
   </Container>
 );

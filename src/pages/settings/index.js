@@ -26,6 +26,7 @@ import { Container, ButtonsContainer } from './style';
 
 class Settings extends Component {
   static propTypes = {
+    history: PropTypes.func.isRequired,
     tables: PropTypes.shape({
       data: PropTypes.arrayOf(PropTypes.oneOfType([null, PropTypes.shape()])),
       loading: PropTypes.bool,
@@ -48,7 +49,8 @@ class Settings extends Component {
     const { tables } = nextProps;
     const { tableSelected } = tables;
     if (tableSelected !== null && typeof tableSelected !== 'undefined') {
-      // window.open('/', '_self');
+      const { history } = this.props;
+      history.push('/');
     }
   }
 
