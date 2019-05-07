@@ -45,6 +45,20 @@ class Settings extends Component {
     },
   };
 
+  componentDidMount() {
+    const { tables } = this.props;
+    const { data, tableSelected } = tables;
+    if (
+      data !== null
+      && typeof data !== 'undefined'
+      && tableSelected !== null
+      && typeof tableSelected !== 'undefined'
+    ) {
+      // this.setState({ connectionTested: true, tableSelected });
+      this.setState({ tableSelected });
+    }
+  }
+
   componentWillReceiveProps(nextProps) {
     const { tables } = nextProps;
     const { tableSelected } = tables;

@@ -19,6 +19,8 @@ export default function tables(state = initialState, action) {
     case Types.GET_ALL_TABLES_REQUEST:
       return {
         ...state,
+        data: null,
+        tableSelected: null,
         loading: true,
         error: '',
       };
