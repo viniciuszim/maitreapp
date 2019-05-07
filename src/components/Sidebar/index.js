@@ -10,7 +10,9 @@ const Sidebar = () => (
   <Container>
     <div>
       <MainLogo>
-        <img src={Logo} alt="Logo" />
+        <a href="/">
+          <img src={Logo} alt="Logo" />
+        </a>
       </MainLogo>
       <ClientLogo>
         <h3>LOGO CLIENTE</h3>

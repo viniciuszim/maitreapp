@@ -8,7 +8,7 @@ export const Types = {
 };
 
 const initialState = {
-  data: [],
+  data: null,
   tableSelected: null,
   loading: false,
   error: null,
@@ -60,8 +60,12 @@ export default function tables(state = initialState, action) {
 }
 
 export const Creators = {
-  getAllTablesRequest: () => ({
+  getAllTablesRequest: (host, port) => ({
     type: Types.GET_ALL_TABLES_REQUEST,
+    payload: {
+      host,
+      port,
+    },
   }),
   getAllTablesSuccess: data => ({
     type: Types.GET_ALL_TABLES_SUCCESS,

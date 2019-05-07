@@ -1,5 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
+import { darken } from 'polished';
+
 import 'font-awesome/css/font-awesome.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
@@ -22,36 +24,54 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Montserrat', sans-serif;
   }
 
-  .greenButton {
-    width: 300px;
-    background: var(--green-color);
-    padding-left: 20px;
-    padding-right: 20px;
-    color: var(--white-color);
-    font-weight: bold;
-    font-size: 14px;
-    border: 0;
+  .textField input {
+    margin-left: 10px;
+    margin-right: 10px;
+    color: var(--white-color) !important;
+  }
+  .textField fieldset {
+    border: 1px solid var(--white-color) !important;
+  }
+  .textField label {
+    color: var(--white-color) !important;
+  }
 
-    i {
-      font-size: 14px;
-      margin-right: 10px;
-    }
+  .button {
+    margin-right: '20px' !important;
+    margin-left: '20px' !important;
+    color: var(--white-color) !important;
+    height: 56px;
+  }
+  .button i {
+    margin-right: 10px;
+  }
+
+  .orangeButton {
+    background-color: var(--orange-color) !important;
+  }
+  .orangeButton:hover {
+    background-color: ${darken(0.2, 'rgb(241, 152, 55)')} !important;
+  }
+
+  .greenButton {
+    background-color: var(--green-color) !important;
+  }
+  .greenButton:hover {
+    background-color: ${darken(0.2, 'rgb(101, 173, 120)')} !important;
   }
 
   .redButton {
-    width: 300px;
-    background: var(--red-color);
-    padding-left: 20px;
-    padding-right: 20px;
-    color: var(--white-color);
-    font-weight: bold;
-    font-size: 14px;
-    border: 0;
+    background-color: var(--red-color) !important;
+  }
+  .redButton:hover {
+    background-color: ${darken(0.2, 'rgb(211, 108, 103)')} !important;
+  }
 
-    i {
-      font-size: 14px;
-      margin-right: 10px;
-    }
+  .blueButton {
+    background-color: var(--blue-color) !important;
+  }
+  .blueButton:hover {
+    background-color: ${darken(0.2, 'rgb(30, 85, 150)')} !important;
   }
 
 `;

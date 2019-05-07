@@ -16,3 +16,85 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
 `;
+
+export const LoadingContainer = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-content: flex-end;
+  align-items: center;
+  padding: 100px;
+`;
+
+export const ErrorContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  background: var(--danger-color);
+  color: var(--white-color);
+  border-radius: 3px;
+  padding: 10px;
+  font-size: 20px;
+
+  i {
+    padding-top: 3px;
+    margin-right: 10px;
+  }
+`;
+
+export const WarningContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  background: var(--warning-color);
+  color: var(--white-color);
+  border-radius: 3px;
+  padding: 10px;
+  font-size: 20px;
+
+  i {
+    padding-top: 3px;
+    margin-right: 10px;
+  }
+`;
+
+export const SuccessContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  background: var(--success-color);
+  color: var(--white-color);
+  border-radius: 3px;
+  padding: 10px;
+  font-size: 20px;
+
+  i {
+    padding-top: 3px;
+    margin-right: 10px;
+  }
+`;
+
+export const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+
+  button {
+    margin: 16px 20px !important;
+  }
+`;
+
+export const Input = styled.input.attrs({
+  type: 'text',
+  value: props => (props.value ? props.value : ''),
+  onChange: props => (props.onChange ? props.onChange : () => {}),
+})`
+  flex: ${props => (props.small ? 0.2 : 1)};
+  height: 30px;
+  border-radius: 3px;
+  border: 1px solid var(--secundary-color);
+  display: block;
+  margin-right: ${props => (props.small ? '20px' : 0)};
+
+  ::placeholder {
+    color: var(--secundary-color);
+  }
+`;

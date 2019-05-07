@@ -10,7 +10,7 @@ const Header = ({ title }) => (
       <h1>{title}</h1>
     </LeftSide>
     <RightSide>
-      <a href="">
+      <a href="configuracoes">
         <i className="fa fa-gear" />
       </a>
     </RightSide>

@@ -13,6 +13,8 @@ export default createGlobalStyle`
     --green-color: rgb(101, 173, 120);
     --greenLight-color: rgb(51,153,51);
     --yellow-color: rgb(255, 253, 84);
+    --orange-color: rgb(241, 152, 55);
+    --blue-color: rgb(30, 85, 150);
 
     --primary-color: #313139;
     --primaryDark-color: #202124;

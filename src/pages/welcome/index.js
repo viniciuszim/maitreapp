@@ -13,9 +13,6 @@ import {
 
 class Welcome extends Component {
   static propTypes = {
-    navigation: PropTypes.shape({
-      navigate: PropTypes.func,
-    }).isRequired,
     tables: PropTypes.shape({
       tableSelected: PropTypes.oneOfType([null, PropTypes.shape()]),
       loading: PropTypes.bool,
@@ -38,15 +35,15 @@ class Welcome extends Component {
           {!!tableSelected && (
             <Fragment>
               <ButtonsContainer>
-                <button type="button" className="greenButton">
+                <button type="button" className="button greenButton">
                   <i className="fas fa-plus-circle" />
                   ACOMPANHE SEU PEDIDO
                 </button>
-                <button type="button" className="greenButton">
+                <button type="button" className="button greenButton">
                   <i className="fas fa-dollar-sign" />
                   ACOMPANHE SUA CONTA
                 </button>
-                <button type="button" className="redButton">
+                <button type="button" className="button redButton">
                   <i className="fas fa-minus-circle" />
                   CANCELAR
                 </button>
