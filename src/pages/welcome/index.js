@@ -10,7 +10,11 @@ import { Creators as TablesActions } from '../../store/ducks/tables';
 import Header from '../../components/Header';
 
 import {
-  Container, TableSelected, ButtonsContainer, OrderContainer,
+  Container,
+  TableSelected,
+  ButtonsContainer,
+  OrderContainer,
+  NoOrderContainer,
 } from './style';
 
 class Welcome extends Component {
@@ -71,7 +75,11 @@ class Welcome extends Component {
                   CANCELAR
                 </Button>
               </ButtonsContainer>
-              <OrderContainer />
+              <OrderContainer>
+                <NoOrderContainer>
+                  <h1>Nenhum item solicitado.</h1>
+                </NoOrderContainer>
+              </OrderContainer>
             </Fragment>
           )}
         </Container>
