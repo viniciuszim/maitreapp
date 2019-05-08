@@ -14,7 +14,10 @@
       }
     ],
     "global-require": "off",
-    "import/prefer-default-export": "off"
+    "import/prefer-default-export": "off",
+    "react/no-array-index-key": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    "no-script-url": "off"
   },
   "settings": {
     "import/resolver": {

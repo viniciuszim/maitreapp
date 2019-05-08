@@ -26,11 +26,11 @@ import { Container, ButtonsContainer } from './style';
 
 class Settings extends Component {
   static propTypes = {
-    history: PropTypes.func.isRequired,
+    history: PropTypes.shape().isRequired,
     tables: PropTypes.shape({
-      data: PropTypes.arrayOf(PropTypes.oneOfType([null, PropTypes.shape()])),
+      data: PropTypes.arrayOf(PropTypes.shape()),
       loading: PropTypes.bool,
-      error: PropTypes.oneOfType([null, PropTypes.string]),
+      error: PropTypes.string,
     }).isRequired,
     getAllTablesRequest: PropTypes.func.isRequired,
     selectTableRequest: PropTypes.func.isRequired,

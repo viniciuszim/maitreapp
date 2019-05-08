@@ -39,7 +39,7 @@ export const Nav = styled.ul`
   list-style: none;
 
   li {
-    padding: 10px;
+    padding: 10px 20px;
     border-bottom: 1px solid;
     border-bottom-color: var(--menuBorderBottom-color);
 

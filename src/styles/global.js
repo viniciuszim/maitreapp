@@ -45,10 +45,10 @@ const GlobalStyle = createGlobalStyle`
   .select svg {
     color: var(--white-color) !important;
   }
-  .select .MuiInputBase-root-36::before {
+  .select>div::before {
     border-bottom: 1px solid var(--white-color) !important;
   }
-  .select .MuiInputBase-root-36::after {
+  .select>div::after {
     border-bottom: 1px solid var(--secundary-color) !important;
   }
 

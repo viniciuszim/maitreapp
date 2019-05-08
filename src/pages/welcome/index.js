@@ -16,9 +16,9 @@ import {
 class Welcome extends Component {
   static propTypes = {
     tables: PropTypes.shape({
-      tableSelected: PropTypes.oneOfType([null, PropTypes.shape()]),
+      tableSelected: PropTypes.shape(),
       loading: PropTypes.bool,
-      error: PropTypes.oneOfType([null, PropTypes.string]),
+      error: PropTypes.string,
     }).isRequired,
   };
 
