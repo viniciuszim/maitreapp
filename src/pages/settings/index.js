@@ -1,28 +1,23 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import Loader from 'react-loader-spinner';
-
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import FormControl from '@material-ui/core/FormControl';
-import InputLabel from '@material-ui/core/InputLabel';
-import Select from '@material-ui/core/Select';
-
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Creators as TablesActions } from '../../store/ducks/tables';
+
+import Loader from 'react-loader-spinner';
+
+import {
+  Form, Row, Col, Button, Alert,
+} from 'react-bootstrap';
 
 import Header from '../../components/Header';
 
 import {
   Content,
-  Row,
   LoadingContainer,
-  ErrorContainer,
-  SuccessContainer,
 } from '../../styles/components';
-import { Container, ButtonsContainer } from './style';
+import { Container } from './style';
 
 class Settings extends Component {
   static propTypes = {
@@ -37,8 +32,10 @@ class Settings extends Component {
   };
 
   state = {
+    validatedForm1: false,
+    validatedForm2: false,
     connectionTested: false,
-    host: 'localhost',
+    host: 'http://localhost',
     port: '3001',
     tableSelected: {
       id: 0,
@@ -68,6 +65,19 @@ class Settings extends Component {
     }
   }
 
+  handleHostAndPortValidation(event) {
+    this.setState({ validatedForm1: true });
+    event.preventDefault();
+    event.stopPropagation();
+
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      return;
+    }
+
+    this.handleTestConnect();
+  }
+
   handleTestConnect = () => {
     const { host, port } = this.state;
     const { getAllTablesRequest } = this.props;
@@ -84,6 +94,19 @@ class Settings extends Component {
     this.setState({ tableSelected: tableSelected[0] });
   };
 
+  handleTableValidation(event) {
+    this.setState({ validatedForm2: true });
+    event.preventDefault();
+    event.stopPropagation();
+
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      return;
+    }
+
+    this.handleSaveTable();
+  }
+
   handleSaveTable = () => {
     const { tableSelected } = this.state;
 
@@ -95,7 +118,12 @@ class Settings extends Component {
 
   render() {
     const {
-      connectionTested, host, port, tableSelected,
+      validatedForm1,
+      validatedForm2,
+      connectionTested,
+      host,
+      port,
+      tableSelected,
     } = this.state;
     const { tables } = this.props;
     const { data, loading, error } = tables;
@@ -103,69 +131,85 @@ class Settings extends Component {
       <Fragment>
         <Header title="Configurações" />
         <Container>
-          <Row>
-            <TextField
-              label="Informe o endereço do WS"
-              className="textField"
-              value={host}
-              onChange={event => this.setState({ host: event.target.value })}
-              margin="normal"
-              variant="outlined"
-              fullWidth
-            />
-          </Row>
-          <Row>
-            <TextField
-              label="Informe a porta do WS"
-              className="textField"
-              value={port}
-              onChange={event => this.setState({ port: event.target.value })}
-              margin="normal"
-              variant="outlined"
-            />
-            <ButtonsContainer>
-              <Button
-                variant="contained"
-                color="primary"
-                className="button orangeButton"
-                onClick={() => this.handleTestConnect()}
-              >
-                <i className="fas fa-plug" />
-                Testar Conexão
-              </Button>
-              {connectionTested && !!data && (
-                <Button
-                  variant="contained"
-                  color="primary"
-                  className="button blueButton"
-                  onClick={() => this.handleSaveTable()}
-                >
-                  <i className="far fa-save" />
-                  Salvar
+          <Form
+            noValidate
+            validated={validatedForm1}
+            onSubmit={e => this.handleHostAndPortValidation(e)}
+          >
+            <Form.Group as={Row} controlId="formPlaintextEmail">
+              <Form.Label column lg="3">
+                Informe o endereço do WS
+              </Form.Label>
+              <Col lg="9">
+                <Form.Control
+                  required
+                  type="text"
+                  onChange={event => this.setState({ host: event.target.value })}
+                  defaultValue={host}
+                />
+                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                <Form.Control.Feedback type="invalid">
+                  Informe o endereço do WS
+                </Form.Control.Feedback>
+              </Col>
+            </Form.Group>
+            <Form.Group as={Row} controlId="formPlaintextEmail">
+              <Form.Label column lg="3">
+                Informe a porta do WS
+              </Form.Label>
+              <Col lg="3">
+                <Form.Control
+                  required
+                  type="text"
+                  onChange={event => this.setState({ port: event.target.value })}
+                  defaultValue={port}
+                />
+                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                <Form.Control.Feedback type="invalid">Informe a porta do WS</Form.Control.Feedback>
+              </Col>
+              <Col md="6" lg="3">
+                <Button type="submit" block variant="" className="button orangeButton">
+                  <i className="fas fa-plug" />
+                  Testar Conexão
                 </Button>
-              )}
-            </ButtonsContainer>
-          </Row>
+              </Col>
+            </Form.Group>
+          </Form>
           {connectionTested && !!data && (
-            <Row>
-              <FormControl className="select">
-                <InputLabel htmlFor="id-tableSelected">Mesa</InputLabel>
-                <Select
-                  native
-                  value={tableSelected.id}
-                  onChange={this.handleChange()}
-                  inputProps={{
-                    name: 'tableSelected',
-                    id: 'id-tableSelected',
-                  }}
-                >
-                  <option value="0" />
-                  {[...data].map(table => (
-                    <option value={table.id}>{table.name}</option>
-                  ))}
-                </Select>
-              </FormControl>
-            </Row>
+            <Form
+              noValidate
+              validated={validatedForm2}
+              onSubmit={e => this.handleTableValidation(e)}
+            >
+              <Form.Group as={Row} controlId="formPlaintextEmail">
+                <Form.Label column lg="3">
+                  Mesa
+                </Form.Label>
+                <Col lg="3">
+                  <Form.Control
+                    required
+                    as="select"
+                    value={tableSelected.id}
+                    onChange={this.handleChange()}
+                  >
+                    <option value="">Selecione a mesa</option>
+                    {[...data].map((table, index) => (
+                      <option key={index} value={table.id}>
+                        {table.name}
+                      </option>
+                    ))}
+                  </Form.Control>
+                  <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                  <Form.Control.Feedback type="invalid">Informe a mesa</Form.Control.Feedback>
+                </Col>
+                <Col md="6" lg="3">
+                  <Button type="submit" block variant="" className="button blueButton">
+                    <i className="far fa-save" />
+                    Salvar
+                  </Button>
+                </Col>
+              </Form.Group>
+            </Form>
           )}
           <Content>
             {loading && (
@@ -176,19 +220,21 @@ class Settings extends Component {
             {!!error && !loading && (
               <Fragment>
                 <div style={{ height: '50px' }} />
-                <ErrorContainer>
+                <Alert variant="danger">
                   <i className="fas fa-times" />
+                  {' '}
                   {error}
-                </ErrorContainer>
+                </Alert>
               </Fragment>
             )}
             {connectionTested && !loading && !!data && (
               <Fragment>
                 <div style={{ height: '50px' }} />
-                <SuccessContainer>
+                <Alert variant="success">
                   <i className="fas fa-check" />
-                  Conexão efetuada com sucesso.
-                </SuccessContainer>
+                  {' '}
+Conexão efetuada com sucesso.
+                </Alert>
               </Fragment>
             )}
           </Content>

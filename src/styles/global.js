@@ -56,7 +56,7 @@ const GlobalStyle = createGlobalStyle`
     margin-right: '20px' !important;
     margin-left: '20px' !important;
     color: var(--white-color) !important;
-    height: 56px;
+    font-weight: bold;
   }
   .button i {
     margin-right: 10px;

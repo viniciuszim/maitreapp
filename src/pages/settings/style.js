@@ -7,14 +7,7 @@ export const Container = styled.div`
   justify-content: flex-start;
   margin: 40px;
 
-  h1 {
+  label {
     color: white;
   }
-`;
-
-export const ButtonsContainer = styled.div`
-  flex: 1;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
 `;

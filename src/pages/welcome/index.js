@@ -1,8 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import Button from '@material-ui/core/Button';
-
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Creators as TablesActions } from '../../store/ducks/tables';
@@ -46,35 +44,6 @@ class Welcome extends Component {
           </TableSelected>
           {!!tableSelected && (
             <Fragment>
-              <ButtonsContainer>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  className="button greenButton"
-                  onClick={() => this.handleFollowOrders()}
-                >
-                  <i className="fas fa-plus-circle" />
-                  ACOMPANHE SEU PEDIDO
-                </Button>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  className="button greenButton"
-                  onClick={() => this.handleFollowBills()}
-                >
-                  <i className="fas fa-dollar-sign" />
-                  ACOMPANHE SUA CONTA
-                </Button>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  className="button redButton"
-                  onClick={() => this.handleCancelOrders()}
-                >
-                  <i className="fas fa-minus-circle" />
-                  CANCELAR
-                </Button>
-              </ButtonsContainer>
               <OrderContainer>
                 <NoOrderContainer>
                   <h1>Nenhum item solicitado.</h1>

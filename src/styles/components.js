@@ -26,51 +26,6 @@ export const LoadingContainer = styled.div`
   padding: 100px;
 `;
 
-export const ErrorContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  background: var(--danger-color);
-  color: var(--white-color);
-  border-radius: 3px;
-  padding: 10px;
-  font-size: 20px;
-
-  i {
-    padding-top: 3px;
-    margin-right: 10px;
-  }
-`;
-
-export const WarningContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  background: var(--warning-color);
-  color: var(--white-color);
-  border-radius: 3px;
-  padding: 10px;
-  font-size: 20px;
-
-  i {
-    padding-top: 3px;
-    margin-right: 10px;
-  }
-`;
-
-export const SuccessContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  background: var(--success-color);
-  color: var(--white-color);
-  border-radius: 3px;
-  padding: 10px;
-  font-size: 20px;
-
-  i {
-    padding-top: 3px;
-    margin-right: 10px;
-  }
-`;
-
 export const Row = styled.div`
   display: flex;
   flex-direction: row;
