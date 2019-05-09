@@ -7,6 +7,8 @@ import { Creators as TablesActions } from '../../store/ducks/tables';
 
 import Header from '../../components/Header';
 
+import { Row, Col, Button } from 'react-bootstrap';
+
 import {
   Container,
   TableSelected,
@@ -44,9 +46,56 @@ class Welcome extends Component {
           </TableSelected>
           {!!tableSelected && (
             <Fragment>
+              <ButtonsContainer>
+                <Row>
+                  <Col lg="4">
+                    <Button
+                      type="button"
+                      block
+                      size="lg"
+                      variant=""
+                      className="button greenButton"
+                      onClick={() => this.handleFollowOrders()}
+                    >
+                      <i className="fas fa-plus-circle" />
+                      ACOMPANHE SEU PEDIDO
+                    </Button>
+                  </Col>
+                  <Col lg="4">
+                    <Button
+                      type="button"
+                      block
+                      size="lg"
+                      variant=""
+                      className="button greenButton"
+                      onClick={() => this.handleFollowBills()}
+                    >
+                      <i className="fas fa-dollar-sign" />
+                      ACOMPANHE SUA CONTA
+                    </Button>
+                  </Col>
+                  <Col lg="4">
+                    <Button
+                      type="button"
+                      block
+                      size="lg"
+                      variant=""
+                      className="button redButton"
+                      onClick={() => this.handleCancelOrders()}
+                    >
+                      <i className="fas fa-minus-circle" />
+                      CANCELAR
+                    </Button>
+                  </Col>
+                </Row>
+              </ButtonsContainer>
               <OrderContainer>
                 <NoOrderContainer>
-                  <h1>Nenhum item solicitado.</h1>
+                  <Row>
+                    <Col>
+                      <h1>Nenhum item solicitado.</h1>
+                    </Col>
+                  </Row>
                 </NoOrderContainer>
               </OrderContainer>
             </Fragment>

@@ -13,10 +13,7 @@ import {
 
 import Header from '../../components/Header';
 
-import {
-  Content,
-  LoadingContainer,
-} from '../../styles/components';
+import { Content, LoadingContainer } from '../../styles/components';
 import { Container } from './style';
 
 class Settings extends Component {

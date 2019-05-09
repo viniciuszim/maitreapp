@@ -19,14 +19,15 @@ export const TableSelected = styled.div`
 
   h2 {
     color: var(--black-color);
+    margin: 0px;
   }
 `;
 
 export const ButtonsContainer = styled.div`
-  height: 50px;
-  display: flex;
+  min-height: 50px;
+  /* display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-between; */
   margin-bottom: 20px;
 `;
 

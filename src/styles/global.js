@@ -90,6 +90,34 @@ const GlobalStyle = createGlobalStyle`
     background-color: ${darken(0.2, 'rgb(30, 85, 150)')} !important;
   }
 
+  /* Extra small devices (phones, less than 768px) */
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 18px;
+    }
+
+    button {
+      margin-bottom: 10px;
+    }
+  }
+
+  /* Small devices (tablets, 769px and up) */
+  @media (min-width: 769px) and (max-width: 992px) {
+    .m-b-sm-10 {
+      margin-bottom: 10px
+    }
+
+    button {
+      margin-bottom: 10px
+    }
+  }
+
+  /* Medium devices (desktops, 993px and up) */
+  @media (min-width: 993px) and (max-width: 1200px) {  }
+
+  /* Large devices (large desktops, 1200px and up) */
+  @media (min-width: 1201px) {  }
+
 `;
 
 export default GlobalStyle;
