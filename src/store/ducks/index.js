@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 
-import itemsMenu from './menu';
+import sidebar from './sidebar';
 import tables from './tables';
 
 export default combineReducers({
-  itemsMenu,
+  sidebar,
   tables,
 });

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Creators as MenuActions } from '../../store/ducks/menu';
+import { Creators as SidebarActions } from '../../store/ducks/sidebar';
 
 import {
   Container, MainLogo, ClientLogo, Nav,
@@ -15,7 +15,7 @@ import Logo from '../../assets/images/maitre-logo.png';
 
 class Sidebar extends Component {
   static propTypes = {
-    itemsMenu: PropTypes.shape({
+    sidebar: PropTypes.shape({
       data: PropTypes.arrayOf(
         PropTypes.shape({
           descricao: PropTypes.string,
@@ -26,17 +26,17 @@ class Sidebar extends Component {
       loading: PropTypes.bool,
       error: PropTypes.string,
     }).isRequired,
-    getMenuRequest: PropTypes.func.isRequired,
+    getSidebarRequest: PropTypes.func.isRequired,
   };
 
   componentDidMount() {
-    const { getMenuRequest } = this.props;
-    getMenuRequest();
+    const { getSidebarRequest } = this.props;
+    getSidebarRequest();
   }
 
   render() {
-    const { itemsMenu } = this.props;
-    const { data, loading, error } = itemsMenu;
+    const { sidebar } = this.props;
+    const { data, loading, error } = sidebar;
     return (
       <Container>
         <div>
@@ -78,10 +78,10 @@ class Sidebar extends Component {
 }
 
 const mapStateToProps = state => ({
-  itemsMenu: state.itemsMenu,
+  sidebar: state.sidebar,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators(MenuActions, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators(SidebarActions, dispatch);
 
 export default connect(
   mapStateToProps,
