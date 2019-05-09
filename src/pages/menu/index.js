@@ -3,23 +3,38 @@ import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Creators as TablesActions } from '../../store/ducks/tables';
+import { Creators as MenuActions } from '../../store/ducks/menu';
 
 import Header from '../../components/Header';
 
-import { Container } from './style';
+import { Container, BoxContainer } from './style';
 
 class Menu extends Component {
   static propTypes = {
-    location: PropTypes.shape().isRequired,
+    location: PropTypes.shape({
+      state: PropTypes.shape({
+        menuSelected: PropTypes.shape({
+          descricao: PropTypes.string,
+          iconfontawesome: PropTypes.string,
+          idgrupomenu: PropTypes.string,
+        }),
+      }),
+    }).isRequired,
     tables: PropTypes.shape({
       tableSelected: PropTypes.shape(),
       loading: PropTypes.bool,
       error: PropTypes.string,
     }).isRequired,
+    getMenuRequest: PropTypes.func.isRequired,
   };
 
-  componentDidMount() {}
+  componentDidMount() {
+    const { location, getMenuRequest } = this.props;
+    const { state } = location;
+    const { menuSelected } = state;
+
+    getMenuRequest(menuSelected.idgrupomenu);
+  }
 
   render() {
     const { location } = this.props;
@@ -32,7 +47,10 @@ class Menu extends Component {
           <Fragment>
             <Header title={menuSelected.descricao} />
             <Container>
-              <h1>{menuSelected.descricao}</h1>
+              <BoxContainer>dfafads</BoxContainer>
+              <BoxContainer />
+              <BoxContainer />
+              <BoxContainer />
             </Container>
           </Fragment>
         )}
@@ -42,10 +60,10 @@ class Menu extends Component {
 }
 
 const mapStateToProps = state => ({
-  tables: state.tables,
+  menu: state.menu,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators(TablesActions, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators(MenuActions, dispatch);
 
 export default connect(
   mapStateToProps,
