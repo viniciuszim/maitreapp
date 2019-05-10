@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Creators as MenuActions } from '../../store/ducks/menu';
+import { Creators as ProductsActions } from '../../store/ducks/products';
 
 import { Row, Col, Button } from 'react-bootstrap';
 
@@ -11,7 +11,7 @@ import Header from '../../components/Header';
 
 import { Container, BoxContainer } from './style';
 
-class Menu extends Component {
+class Products extends Component {
   static propTypes = {
     location: PropTypes.shape({
       state: PropTypes.shape({
@@ -22,7 +22,7 @@ class Menu extends Component {
         }),
       }),
     }).isRequired,
-    menu: PropTypes.shape({
+    products: PropTypes.shape({
       data: PropTypes.arrayOf(
         PropTypes.shape({
           idcardapio: PropTypes.string,
@@ -36,38 +36,41 @@ class Menu extends Component {
       loading: PropTypes.bool,
       error: PropTypes.string,
     }).isRequired,
-    getMenuRequest: PropTypes.func.isRequired,
+    getProductsRequest: PropTypes.func.isRequired,
   };
 
   componentDidMount() {
-    const { location, getMenuRequest } = this.props;
+    const { location, getProductsRequest } = this.props;
     const { state } = location;
     const { sidebarSelected } = state;
 
-    getMenuRequest(sidebarSelected.idgrupomenu);
+    getProductsRequest(sidebarSelected.idgrupomenu);
   }
 
   handleMenuCall = (item) => {
-    const { location, getMenuRequest, history } = this.props;
+    const { location, getProductsRequest, history } = this.props;
     const { state } = location;
     const { sidebarSelected } = state;
 
     if (item.possuisubnivel === 'true') {
-      getMenuRequest(sidebarSelected.idgrupomenu, item.idcardapio);
+      getProductsRequest(sidebarSelected.idgrupomenu, item.idcardapio);
       return;
     }
 
-    history.push({
-      pathname: `/sidebar/${sidebarSelected.idgrupomenu}/menu/${item.idcardapio}/products`,
-      state: { sidebarSelected, menuSelected: item },
-    });
+    // history.push('/');
+    // history.push({
+    //   pathname: '/template',
+    //   search: '?query=abc',
+    //   state: { detail: response.data }
+    // })
+    console.tron.log(`menu/${sidebarSelected.idgrupomenu}/cardapio/${item.idcardapio}/produtos`);
   };
 
   render() {
-    const { location, menu } = this.props;
+    const { location, products } = this.props;
     const { state } = location;
     const { sidebarSelected } = state;
-    const { data } = menu;
+    const { data } = products;
 
     return (
       <Fragment>
@@ -116,12 +119,12 @@ class Menu extends Component {
 }
 
 const mapStateToProps = state => ({
-  menu: state.menu,
+  products: state.products,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators(MenuActions, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators(ProductsActions, dispatch);
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Menu);
+)(Products);
