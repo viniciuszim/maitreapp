@@ -37,10 +37,11 @@ export default function menu(state = initialState, action) {
 }
 
 export const Creators = {
-  getMenuRequest: idSidebar => ({
+  getMenuRequest: (idSidebar, idMenu) => ({
     type: Types.GET_MENU_REQUEST,
     payload: {
       idSidebar,
+      idMenu,
     },
   }),
 

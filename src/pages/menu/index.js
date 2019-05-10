@@ -47,19 +47,23 @@ class Menu extends Component {
     getMenuRequest(sidebarSelected.idgrupomenu);
   }
 
-  handleMenuLevel = (item) => {
-    const { location, history } = this.props;
+  handleMenuCall = (item) => {
+    const { location, getMenuRequest, history } = this.props;
     const { state } = location;
     const { sidebarSelected } = state;
 
-    // possuisubnivel
+    if (item.possuisubnivel === 'true') {
+      getMenuRequest(sidebarSelected.idgrupomenu, item.idcardapio);
+      return;
+    }
+
     // history.push('/');
     // history.push({
     //   pathname: '/template',
     //   search: '?query=abc',
     //   state: { detail: response.data }
     // })
-    console.tron.log(`menu/${sidebarSelected.idgrupomenu}/cardapio/${item.idcardapio}/nivel`);
+    console.tron.log(`menu/${sidebarSelected.idgrupomenu}/cardapio/${item.idcardapio}/produtos`);
   };
 
   render() {
@@ -95,7 +99,7 @@ class Menu extends Component {
                               size="md"
                               variant=""
                               className="button greenButton"
-                              onClick={() => this.handleMenuLevel(item)}
+                              onClick={() => this.handleMenuCall(item)}
                             >
                               <i className="fas fa-plus-circle" />
                               VER OPÇÕES
