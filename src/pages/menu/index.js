@@ -15,7 +15,7 @@ class Menu extends Component {
   static propTypes = {
     location: PropTypes.shape({
       state: PropTypes.shape({
-        menuSelected: PropTypes.shape({
+        sidebarSelected: PropTypes.shape({
           descricao: PropTypes.string,
           iconfontawesome: PropTypes.string,
           idgrupomenu: PropTypes.string,
@@ -42,15 +42,15 @@ class Menu extends Component {
   componentDidMount() {
     const { location, getMenuRequest } = this.props;
     const { state } = location;
-    const { menuSelected } = state;
+    const { sidebarSelected } = state;
 
-    getMenuRequest(menuSelected.idgrupomenu);
+    getMenuRequest(sidebarSelected.idgrupomenu);
   }
 
   handleMenuLevel = (item) => {
     const { location, history } = this.props;
     const { state } = location;
-    const { menuSelected } = state;
+    const { sidebarSelected } = state;
 
     // possuisubnivel
     // history.push('/');
@@ -59,20 +59,20 @@ class Menu extends Component {
     //   search: '?query=abc',
     //   state: { detail: response.data }
     // })
-    console.tron.log(`menu/${menuSelected.idgrupomenu}/cardapio/${item.idcardapio}/nivel`);
+    console.tron.log(`menu/${sidebarSelected.idgrupomenu}/cardapio/${item.idcardapio}/nivel`);
   };
 
   render() {
     const { location, menu } = this.props;
     const { state } = location;
-    const { menuSelected } = state;
+    const { sidebarSelected } = state;
     const { data } = menu;
 
     return (
       <Fragment>
-        {!!menuSelected && (
+        {!!sidebarSelected && (
           <Fragment>
-            <Header title={menuSelected.descricao} />
+            <Header title={sidebarSelected.descricao} />
             <Container>
               <Row>
                 {!!data

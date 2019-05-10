@@ -57,7 +57,7 @@ class Sidebar extends Component {
                       to={{
                         pathname: `/sidebar/${item.idgrupomenu}/menu`,
                         state: {
-                          menuSelected: item,
+                          sidebarSelected: item,
                         },
                       }}
                     >
