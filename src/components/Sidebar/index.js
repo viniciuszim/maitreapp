@@ -51,18 +51,18 @@ class Sidebar extends Component {
           <div>
             <Nav>
               {!!data
-                && [...data].map((menu, index) => (
+                && [...data].map((item, index) => (
                   <li key={index}>
                     <Link
                       to={{
-                        pathname: `/menu/${menu.idgrupomenu}/cardapio`,
+                        pathname: `/sidebar/${item.idgrupomenu}/menu`,
                         state: {
-                          menuSelected: menu,
+                          menuSelected: item,
                         },
                       }}
                     >
-                      <i className={menu.iconfontawesome} />
-                      {menu.descricao}
+                      <i className={item.iconfontawesome} />
+                      {item.descricao}
                     </Link>
                   </li>
                 ))}

@@ -24,32 +24,8 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Montserrat', sans-serif;
   }
 
-  .textField input {
-    margin-left: 10px;
-    margin-right: 10px;
-    color: var(--white-color) !important;
-  }
-  .textField fieldset {
-    border: 1px solid var(--white-color) !important;
-  }
-  .textField label {
-    color: var(--white-color) !important;
-  }
-
-  .select label {
-    color: var(--white-color) !important;
-  }
-  .select select {
-    color: var(--white-color) !important;
-  }
-  .select svg {
-    color: var(--white-color) !important;
-  }
-  .select>div::before {
-    border-bottom: 1px solid var(--white-color) !important;
-  }
-  .select>div::after {
-    border-bottom: 1px solid var(--secundary-color) !important;
+  .flex {
+    flex: 1
   }
 
   .button {

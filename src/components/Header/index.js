@@ -12,7 +12,7 @@ const Header = ({ title }) => (
       <h1>{title}</h1>
     </LeftSide>
     <RightSide>
-      <Link to="/configuracoes">
+      <Link to="/settings">
         <i className="fa fa-gear" />
       </Link>
     </RightSide>
