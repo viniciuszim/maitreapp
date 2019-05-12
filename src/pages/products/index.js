@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Creators as SidebarActions } from '../../store/ducks/sidebar';
+import { Creators as MenuActions } from '../../store/ducks/menu';
 import { Creators as ProductsActions } from '../../store/ducks/products';
 
 import { Row, Col, Button } from 'react-bootstrap';
@@ -13,15 +15,8 @@ import { Container, BoxContainer } from './style';
 
 class Products extends Component {
   static propTypes = {
-    location: PropTypes.shape({
-      state: PropTypes.shape({
-        sidebarSelected: PropTypes.shape({
-          descricao: PropTypes.string,
-          iconfontawesome: PropTypes.string,
-          idgrupomenu: PropTypes.string,
-        }),
-      }),
-    }).isRequired,
+    sidebar: PropTypes.shape().isRequired,
+    menu: PropTypes.shape().isRequired,
     products: PropTypes.shape({
       data: PropTypes.arrayOf(
         PropTypes.shape({
@@ -40,19 +35,19 @@ class Products extends Component {
   };
 
   componentDidMount() {
-    const { location, getProductsRequest } = this.props;
-    const { state } = location;
-    const { sidebarSelected } = state;
+    const { sidebar, getProductsRequest } = this.props;
+    const { sidebarSelected } = sidebar;
 
-    getProductsRequest(sidebarSelected.idgrupomenu);
+    if (sidebarSelected !== null) {
+      getProductsRequest(sidebarSelected.idgrupomenu);
+    }
   }
 
   handleMenuCall = (item) => {
-    const { location, getProductsRequest, history } = this.props;
-    const { state } = location;
-    const { sidebarSelected } = state;
+    const { sidebar, getProductsRequest, history } = this.props;
+    const { sidebarSelected } = sidebar;
 
-    if (item.possuisubnivel === 'true') {
+    if (item.possuisubnivel === 'true' && sidebarSelected !== null) {
       getProductsRequest(sidebarSelected.idgrupomenu, item.idcardapio);
       return;
     }
@@ -67,9 +62,8 @@ class Products extends Component {
   };
 
   render() {
-    const { location, products } = this.props;
-    const { state } = location;
-    const { sidebarSelected } = state;
+    const { sidebar, products } = this.props;
+    const { sidebarSelected } = sidebar;
     const { data } = products;
 
     return (
@@ -119,10 +113,19 @@ class Products extends Component {
 }
 
 const mapStateToProps = state => ({
+  sidebar: state.sidebar,
+  menu: state.menu,
   products: state.products,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators(ProductsActions, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators(
+  {
+    ...SidebarActions,
+    ...MenuActions,
+    ...ProductsActions,
+  },
+  dispatch,
+);
 
 export default connect(
   mapStateToProps,

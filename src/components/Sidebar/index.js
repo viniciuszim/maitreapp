@@ -27,12 +27,18 @@ class Sidebar extends Component {
       error: PropTypes.string,
     }).isRequired,
     getSidebarRequest: PropTypes.func.isRequired,
+    selectSidebarRequest: PropTypes.func.isRequired,
   };
 
   componentDidMount() {
     const { getSidebarRequest } = this.props;
     getSidebarRequest();
   }
+
+  handleSidebarCall = (item) => {
+    const { selectSidebarRequest } = this.props;
+    selectSidebarRequest(item);
+  };
 
   render() {
     const { sidebar } = this.props;
@@ -53,7 +59,16 @@ class Sidebar extends Component {
               {!!data
                 && [...data].map((item, index) => (
                   <li key={index}>
+                    {/* <Link
+                      to={{
+                        pathname: `/sidebar/${item.idgrupomenu}/menu`,
+                        state: {
+                          sidebarSelected: item,
+                        },
+                      }}
+                    > */}
                     <Link
+                      onClick={() => this.handleSidebarCall(item)}
                       to={{
                         pathname: `/sidebar/${item.idgrupomenu}/menu`,
                         state: {
