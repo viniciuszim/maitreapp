@@ -97,6 +97,19 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
+  .positionSidebar {
+    position: relative;
+    height: 100%;
+    z-index: 8888;
+  }
+
+  /* Extra small devices  */
+  @media (max-width: 575px) {
+    .positionSidebar {
+      position: absolute;
+    }
+  }
+
 `;
 
 export default GlobalStyle;

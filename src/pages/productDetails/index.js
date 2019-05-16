@@ -11,8 +11,14 @@ import Header from '../../components/Header';
 
 import { Row, Col, Button } from 'react-bootstrap';
 
-import { Container, ProductContainer, ProductInfoContainer, ProductDetailsContainer, 
-  SideDishContainer, SeeMoreContainer } from './style';
+import {
+  Container,
+  ProductContainer,
+  ProductInfoContainer,
+  ProductDetailsContainer,
+  SideDishContainer,
+  SeeMoreContainer,
+} from './style';
 
 class ProductDetails extends Component {
   static propTypes = {
@@ -38,7 +44,7 @@ class ProductDetails extends Component {
 
   handleOrderCall = (item) => {
     console.tron.log('handleOrderCall');
-  }
+  };
 
   render() {
     const { sidebar, menu, products } = this.props;
@@ -55,7 +61,10 @@ class ProductDetails extends Component {
               <ProductContainer>
                 <Row>
                   <Col md="3">
-                    <img src={`data:image/jpeg;base64,${productSelected.foto}`} alt={productSelected.descricao} />
+                    <img
+                      src={`data:image/jpeg;base64,${productSelected.foto}`}
+                      alt={productSelected.descricao}
+                    />
                   </Col>
                   <Col md="9">
                     <ProductInfoContainer className="pl-md-4">
@@ -69,13 +78,20 @@ class ProductDetails extends Component {
                           <Col xs="6" className="text-xs-center text-sm-left p-0">
                             <span className="infos">
                               <i className="far fa-clock" />
-                              Preparo:{' '}
+                              Preparo:
+                              {' '}
                               {productSelected.tempopreparo}
                             </span>
                           </Col>
                           <Col xs="6" className="text-xs-center text-sm-right p-0">
                             <span className="infos">
-                              <i className={productSelected.quantidadepessoas > 1 ? 'fas fa-users' : 'fas fa-user'} />
+                              <i
+                                className={
+                                  productSelected.quantidadepessoas > 1
+                                    ? 'fas fa-users'
+                                    : 'fas fa-user'
+                                }
+                              />
                               Serve:
                               {' '}
                               {productSelected.quantidadepessoas}
@@ -94,13 +110,24 @@ class ProductDetails extends Component {
                         <Row className="flex">
                           <Col sm="6" className="p-0 text-left mt-sm-4">
                             <h6>ACOMPANHAMENTOS:</h6>
-                            - Salada especial<br/>
-                            - Arroz branco ou Integral<br/>
-                            - Legumes no vapor<br/>
-                            - Azeite<br/>
+                            - Salada especial
+                            <br />
+                            - Arroz branco ou Integral
+                            <br />
+                            - Legumes no vapor
+                            <br />
+                            - Azeite
+                            <br />
                           </Col>
-                          <Col sm="6" lg={{ span: 3, offset: 3 }} className="p-0 orderCurrency text-right">
-                            <span className="orderCurrencylabel">R$&nbsp;<span className="orderCurrencyValue">39,90</span></span>
+                          <Col
+                            sm="6"
+                            lg={{ span: 3, offset: 3 }}
+                            className="p-0 orderCurrency text-right"
+                          >
+                            <span className="orderCurrencylabel">
+                              R$&nbsp;
+                              <span className="orderCurrencyValue">39,90</span>
+                            </span>
                             <Button
                               block
                               type="button"
@@ -120,12 +147,8 @@ class ProductDetails extends Component {
               </ProductContainer>
               <SeeMoreContainer>
                 <Row>
-                  <Col md="6">
-                    {/* <h1>Veja mais 1</h1> */}
-                  </Col>
-                  <Col md="6">
-                    {/* <h1>Veja mais 2</h1> */}
-                  </Col>
+                  <Col md="6">{/* <h1>Veja mais 1</h1> */}</Col>
+                  <Col md="6">{/* <h1>Veja mais 2</h1> */}</Col>
                 </Row>
               </SeeMoreContainer>
             </Container>

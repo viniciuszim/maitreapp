@@ -25,6 +25,7 @@ class Sidebar extends Component {
       ),
       loading: PropTypes.bool,
       error: PropTypes.string,
+      showSidebar: PropTypes.bool,
     }).isRequired,
     getSidebarRequest: PropTypes.func.isRequired,
     selectSidebarRequest: PropTypes.func.isRequired,
@@ -42,9 +43,11 @@ class Sidebar extends Component {
 
   render() {
     const { sidebar } = this.props;
-    const { data, loading, error } = sidebar;
+    const { data, showSidebar, sidebarSelected } = sidebar;
     return (
-      <div className="d-none d-sm-block">
+      <div
+        className={showSidebar ? 'positionSidebar d-block' : 'positionSidebar d-none d-sm-block'}
+      >
         <Container>
           <div>
             <MainLogo>
@@ -60,15 +63,13 @@ class Sidebar extends Component {
                 {!!data
                   && [...data].map((item, index) => (
                     <li key={index}>
-                      {/* <Link
-                        to={{
-                          pathname: `/sidebar/${item.idgrupomenu}/menu`,
-                          state: {
-                            sidebarSelected: item,
-                          },
-                        }}
-                      > */}
                       <Link
+                        className={
+                          sidebarSelected !== null
+                          && sidebarSelected.idgrupomenu === item.idgrupomenu
+                            ? 'active'
+                            : ''
+                        }
                         onClick={() => this.handleSidebarCall(item)}
                         to={{
                           pathname: `/sidebar/${item.idgrupomenu}/menu`,

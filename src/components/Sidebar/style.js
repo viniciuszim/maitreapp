@@ -61,6 +61,10 @@ export const Nav = styled.ul`
       }
     }
 
+    a.active {
+      color: var(--menuTextHover-color);
+    }
+
     &:last-child {
       border: none;
     }

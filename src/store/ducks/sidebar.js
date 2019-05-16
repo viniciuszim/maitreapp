@@ -3,6 +3,7 @@ export const Types = {
   GET_SIDEBAR_SUCCESS: 'sidebar/GET_SIDEBAR_SUCCESS',
   GET_SIDEBAR_FAILURE: 'sidebar/GET_SIDEBAR_FAILURE',
   SELECT_SIDEBAR_REQUEST: 'sidebar/SELECT_SIDEBAR_REQUEST',
+  HANDLE_SIDEBAR_REQUEST: 'sidebar/HANDLE_SIDEBAR_REQUEST',
 };
 
 const initialState = {
@@ -10,6 +11,7 @@ const initialState = {
   loading: false,
   error: null,
   sidebarSelected: null,
+  showSidebar: false,
 };
 
 export default function sidebar(state = initialState, action) {
@@ -20,6 +22,7 @@ export default function sidebar(state = initialState, action) {
         loading: true,
         error: '',
         sidebarSelected: null,
+        showSidebar: !(window.innerWidth <= 575), // Screen XS
       };
     case Types.GET_SIDEBAR_SUCCESS:
       return {
@@ -38,6 +41,11 @@ export default function sidebar(state = initialState, action) {
       return {
         ...state,
         sidebarSelected: action.payload.sidebarSelected,
+      };
+    case Types.HANDLE_SIDEBAR_REQUEST:
+      return {
+        ...state,
+        showSidebar: action.payload.showSidebar,
       };
     default:
       return state;
@@ -67,6 +75,13 @@ export const Creators = {
     type: Types.SELECT_SIDEBAR_REQUEST,
     payload: {
       sidebarSelected,
+    },
+  }),
+
+  handleSidebarRequest: showSidebar => ({
+    type: Types.HANDLE_SIDEBAR_REQUEST,
+    payload: {
+      showSidebar,
     },
   }),
 };
