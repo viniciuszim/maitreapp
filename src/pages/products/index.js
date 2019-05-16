@@ -11,7 +11,7 @@ import { Row, Col, Button } from 'react-bootstrap';
 
 import Header from '../../components/Header';
 
-import { Container, BoxContainer } from './style';
+import { Container, BoxContainer, ButtonsContainer } from './style';
 
 class Products extends Component {
   static propTypes = {
@@ -32,78 +32,112 @@ class Products extends Component {
       error: PropTypes.string,
     }).isRequired,
     getProductsRequest: PropTypes.func.isRequired,
+    selectProductRequest: PropTypes.func.isRequired,
   };
 
   componentDidMount() {
-    const { sidebar, getProductsRequest } = this.props;
+    const { sidebar, menu, getProductsRequest } = this.props;
     const { sidebarSelected } = sidebar;
+    const { menuSelected } = menu;
 
     if (sidebarSelected !== null) {
-      getProductsRequest(sidebarSelected.idgrupomenu);
+      getProductsRequest(sidebarSelected.idgrupomenu, menuSelected.idcardapio);
     }
   }
 
-  handleMenuCall = (item) => {
-    const { sidebar, getProductsRequest, history } = this.props;
+  handleProductCall = (item) => {
+    const { sidebar, menu, selectProductRequest, history } = this.props;
     const { sidebarSelected } = sidebar;
+    const { menuSelected } = menu;
 
-    if (item.possuisubnivel === 'true' && sidebarSelected !== null) {
-      getProductsRequest(sidebarSelected.idgrupomenu, item.idcardapio);
-      return;
-    }
-
-    // history.push('/');
-    // history.push({
-    //   pathname: '/template',
-    //   search: '?query=abc',
-    //   state: { detail: response.data }
-    // })
-    console.tron.log(`menu/${sidebarSelected.idgrupomenu}/cardapio/${item.idcardapio}/produtos`);
+    selectProductRequest(item);
+    history.push(`/sidebar/${sidebarSelected.idgrupomenu}/menu/${menuSelected.idcardapio}/products/${item.idproduto}`);
   };
 
+  handleOrderCall = (item) => {
+    console.tron.log('handleOrderCall');
+  }
+
   render() {
-    const { sidebar, products } = this.props;
+    const { sidebar, menu, products } = this.props;
     const { sidebarSelected } = sidebar;
+    const { menuSelected } = menu;
     const { data } = products;
 
     return (
       <Fragment>
-        {!!sidebarSelected && (
+        {!!sidebarSelected && !!menuSelected && (
           <Fragment>
             <Header title={sidebarSelected.descricao} />
             <Container>
               <Row>
-                {!!data
-                  && [...data].map((item, index) => (
-                    <Col key={index} lg="6">
-                      <BoxContainer>
-                        <Row className="flex">
-                          <Col>
-                            <img src={`data:image/jpeg;base64,${item.foto}`} alt={item.descricao} />
-                          </Col>
-                        </Row>
-                        <Row>
-                          <Col sm="6" className="text-left">
-                            <h2>{item.descricao}</h2>
-                          </Col>
-                          <Col sm="6" lg={{ span: 5, offset: 1 }} className="text-right">
-                            <Button
-                              block
-                              type="button"
-                              size="md"
-                              variant=""
-                              className="button greenButton"
-                              onClick={() => this.handleMenuCall(item)}
-                            >
-                              <i className="fas fa-plus-circle" />
-                              VER OPÇÕES
-                            </Button>
-                          </Col>
-                        </Row>
-                      </BoxContainer>
-                    </Col>
-                  ))}
+                <Col>
+                  <h2>{menuSelected.descricao}</h2>
+                </Col>
               </Row>
+              {!!data
+                && [...data].map((item, index) => (
+                  <BoxContainer key={index}>
+                    <Row>
+                      <Col md="3">
+                        <img src={`data:image/jpeg;base64,${item.foto}`} alt={item.descricao} />
+                      </Col>
+                      <Col md="6" className="pt-sm-2 pt-md-3 text-left">
+                        <Row>
+                          <Col>
+                            <h3>{item.descricao}</h3>
+                          </Col>
+                        </Row>
+                        <Row className="mb-1">
+                          <Col sm="6" className="text-xs-center text-sm-left">
+                            <span className="infos">
+                              <i className="far fa-clock" />
+                              Preparo:{' '}
+                              {item.tempopreparo}
+                            </span>
+                          </Col>
+                          <Col sm="6" className="text-xs-center text-sm-right">
+                            <span className="infos">
+                              <i className={item.quantidadepessoas > 1 ? 'fas fa-users' : 'fas fa-user'} />
+                              Serve:
+                              {' '}
+                              {item.quantidadepessoas}
+                              {' '}
+                              {item.quantidadepessoas > 1 ? 'pessoas' : 'pessoa'}
+                            </span>
+                          </Col>
+                        </Row>
+                        <Row className="mb-1">
+                          <Col>
+                            <span className="detalhes">{item.descricao}</span>
+                          </Col>
+                        </Row>
+                      </Col>
+                      <Col md="3">
+                        <ButtonsContainer>
+                          <Button
+                            type="button"
+                            variant=""
+                            className="flex button redButton mb-sm-1"
+                            onClick={() => this.handleProductCall(item)}
+                          >
+                            DETALHES
+                          </Button>
+                          <Button
+                            block
+                            type="button"
+                            size="md"
+                            variant=""
+                            className="flex button greenButton"
+                            onClick={() => this.handleOrderCall(item)}
+                          >
+                            PEDIR
+                          </Button>
+                        </ButtonsContainer>
+                      </Col>
+                    </Row>
+                  </BoxContainer>
+                ))}
             </Container>
           </Fragment>
         )}

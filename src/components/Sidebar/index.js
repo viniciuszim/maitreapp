@@ -44,50 +44,52 @@ class Sidebar extends Component {
     const { sidebar } = this.props;
     const { data, loading, error } = sidebar;
     return (
-      <Container>
-        <div>
-          <MainLogo>
-            <Link to="/">
-              <img src={Logo} alt="Logo" />
-            </Link>
-          </MainLogo>
-          <ClientLogo>
-            <h3>LOGO CLIENTE</h3>
-          </ClientLogo>
+      <div className="d-none d-sm-block">
+        <Container>
           <div>
-            <Nav>
-              {!!data
-                && [...data].map((item, index) => (
-                  <li key={index}>
-                    {/* <Link
-                      to={{
-                        pathname: `/sidebar/${item.idgrupomenu}/menu`,
-                        state: {
-                          sidebarSelected: item,
-                        },
-                      }}
-                    > */}
-                    <Link
-                      onClick={() => this.handleSidebarCall(item)}
-                      to={{
-                        pathname: `/sidebar/${item.idgrupomenu}/menu`,
-                        state: {
-                          sidebarSelected: item,
-                        },
-                      }}
-                    >
-                      <i className={item.iconfontawesome} />
-                      {item.descricao}
-                    </Link>
-                  </li>
-                ))}
-            </Nav>
+            <MainLogo>
+              <Link to="/">
+                <img src={Logo} alt="Logo" />
+              </Link>
+            </MainLogo>
+            <ClientLogo>
+              <h3>LOGO CLIENTE</h3>
+            </ClientLogo>
+            <div>
+              <Nav>
+                {!!data
+                  && [...data].map((item, index) => (
+                    <li key={index}>
+                      {/* <Link
+                        to={{
+                          pathname: `/sidebar/${item.idgrupomenu}/menu`,
+                          state: {
+                            sidebarSelected: item,
+                          },
+                        }}
+                      > */}
+                      <Link
+                        onClick={() => this.handleSidebarCall(item)}
+                        to={{
+                          pathname: `/sidebar/${item.idgrupomenu}/menu`,
+                          state: {
+                            sidebarSelected: item,
+                          },
+                        }}
+                      >
+                        <i className={item.iconfontawesome} />
+                        {item.descricao}
+                      </Link>
+                    </li>
+                  ))}
+              </Nav>
+            </div>
           </div>
-        </div>
-        <div>
-          <h5>Cadastre-se</h5>
-        </div>
-      </Container>
+          <div>
+            <h5>Cadastre-se</h5>
+          </div>
+        </Container>
+      </div>
     );
   }
 }

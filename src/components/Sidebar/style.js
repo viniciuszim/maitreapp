@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.aside`
   height: 100%;
-  width: 250px;
+  width: 200px;
   background: var(--menu-color);
   color: var(--light-color);
 
@@ -32,6 +32,7 @@ export const ClientLogo = styled.div`
 
   h3 {
     color: var(--white-color);
+    font-size: 15px;
   }
 `;
 
@@ -46,8 +47,9 @@ export const Nav = styled.ul`
     a {
       color: inherit;
       text-decoration: none;
-      font-size: 15px;
+      font-size: 12px;
       line-height: 60px;
+      font-weight: bold;
 
       &:hover {
         color: var(--menuTextHover-color);
