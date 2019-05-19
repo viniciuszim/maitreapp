@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Creators as TablesActions } from '../../store/ducks/tables';
+import { Creators as SidebarActions } from '../../store/ducks/sidebar';
 
 import Header from '../../components/Header';
 
@@ -24,9 +25,13 @@ class Welcome extends Component {
       loading: PropTypes.bool,
       error: PropTypes.string,
     }).isRequired,
+    selectSidebarRequest: PropTypes.func.isRequired,
   };
 
-  componentDidUpdate() {}
+  componentDidMount() {
+    const { selectSidebarRequest } = this.props;
+    selectSidebarRequest(null);
+  }
 
   handleFollowOrders = () => {};
 
@@ -108,9 +113,16 @@ class Welcome extends Component {
 
 const mapStateToProps = state => ({
   tables: state.tables,
+  sidebar: state.sidebar,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators(TablesActions, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators(
+  {
+    ...TablesActions,
+    ...SidebarActions,
+  },
+  dispatch,
+);
 
 export default connect(
   mapStateToProps,

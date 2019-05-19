@@ -36,9 +36,15 @@ class Sidebar extends Component {
     getSidebarRequest();
   }
 
+  handleLiClick = (index) => {
+    document.getElementById(`li-${index}`).click();
+  };
+
   handleSidebarCall = (item) => {
     const { selectSidebarRequest } = this.props;
     selectSidebarRequest(item);
+
+    // history.push(`/sidebar/${item.idgrupomenu}/menu`);
   };
 
   render() {
@@ -62,8 +68,9 @@ class Sidebar extends Component {
               <Nav>
                 {!!data
                   && [...data].map((item, index) => (
-                    <li key={index}>
+                    <li key={index} onClick={() => this.handleLiClick(index)}>
                       <Link
+                        id={`li-${index}`}
                         className={
                           sidebarSelected !== null
                           && sidebarSelected.idgrupomenu === item.idgrupomenu

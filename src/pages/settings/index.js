@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Creators as TablesActions } from '../../store/ducks/tables';
+import { Creators as SidebarActions } from '../../store/ducks/sidebar';
 
 import Loader from 'react-loader-spinner';
 
@@ -26,6 +27,7 @@ class Settings extends Component {
     }).isRequired,
     getAllTablesRequest: PropTypes.func.isRequired,
     selectTableRequest: PropTypes.func.isRequired,
+    selectSidebarRequest: PropTypes.func.isRequired,
   };
 
   state = {
@@ -40,7 +42,7 @@ class Settings extends Component {
   };
 
   componentDidMount() {
-    const { tables } = this.props;
+    const { tables, selectSidebarRequest } = this.props;
     const { data, tableSelected } = tables;
     if (
       data !== null
@@ -51,6 +53,7 @@ class Settings extends Component {
       // this.setState({ connectionTested: true, tableSelected });
       this.setState({ tableSelected });
     }
+    selectSidebarRequest(null);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -140,11 +143,11 @@ class Settings extends Component {
               <Col lg="9">
                 <Form.Control
                   required
-                  type="text"
+                  type="url"
                   onChange={event => this.setState({ host: event.target.value })}
                   defaultValue={host}
                 />
-                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                {/* <Form.Control.Feedback>Looks good!</Form.Control.Feedback> */}
                 <Form.Control.Feedback type="invalid">
                   Informe o endereço do WS
                 </Form.Control.Feedback>
@@ -154,18 +157,23 @@ class Settings extends Component {
               <Form.Label column lg="3">
                 Informe a porta do WS
               </Form.Label>
-              <Col lg="3">
+              <Col md="6" lg="3">
                 <Form.Control
                   required
                   type="text"
                   onChange={event => this.setState({ port: event.target.value })}
                   defaultValue={port}
                 />
-                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                {/* <Form.Control.Feedback>Looks good!</Form.Control.Feedback> */}
                 <Form.Control.Feedback type="invalid">Informe a porta do WS</Form.Control.Feedback>
               </Col>
               <Col md="6" lg="3">
-                <Button type="submit" block variant="" className="button orangeButton">
+                <Button
+                  type="submit"
+                  block
+                  variant=""
+                  className="button orangeButton mt-xs-3"
+                >
                   <i className="fas fa-plug" />
                   Testar Conexão
                 </Button>
@@ -182,7 +190,7 @@ class Settings extends Component {
                 <Form.Label column lg="3">
                   Mesa
                 </Form.Label>
-                <Col lg="3">
+                <Col md="6" lg="3">
                   <Form.Control
                     required
                     as="select"
@@ -243,9 +251,16 @@ Conexão efetuada com sucesso.
 
 const mapStateToProps = state => ({
   tables: state.tables,
+  sidebar: state.sidebar,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators(TablesActions, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators(
+  {
+    ...TablesActions,
+    ...SidebarActions,
+  },
+  dispatch,
+);
 
 export default connect(
   mapStateToProps,

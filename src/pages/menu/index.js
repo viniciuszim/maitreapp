@@ -75,7 +75,11 @@ class Menu extends Component {
               <Row>
                 {!!data
                   && [...data].map((item, index) => (
-                    <Col key={index} lg="6">
+                    <Col
+                      key={index}
+                      md="6"
+                      lg={index % 2 === 0 ? { span: 5, offset: 1 } : { span: 5, offset: 1 }}
+                    >
                       <BoxContainer>
                         <Row className="flex">
                           <Col>
@@ -86,7 +90,8 @@ class Menu extends Component {
                           <Col sm="6" className="text-left">
                             <h2>{item.descricao}</h2>
                           </Col>
-                          <Col sm="6" lg={{ span: 5, offset: 1 }} className="text-right">
+                          {/* lg={{ span: 5, offset: 1 }} */}
+                          <Col sm="6" className="text-right">
                             <Button
                               block
                               type="button"

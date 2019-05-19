@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.aside`
+  overflow: scroll;
   height: 100%;
   width: 200px;
   background: var(--menu-color);
@@ -51,10 +52,6 @@ export const Nav = styled.ul`
       line-height: 60px;
       font-weight: bold;
 
-      &:hover {
-        color: var(--menuTextHover-color);
-      }
-
       i {
         font-size: 20px;
         margin-right: 10px;
@@ -62,6 +59,11 @@ export const Nav = styled.ul`
     }
 
     a.active {
+      color: var(--menuTextHover-color);
+    }
+
+    &:hover {
+      cursor: pointer;
       color: var(--menuTextHover-color);
     }
 
