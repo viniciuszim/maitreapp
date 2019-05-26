@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 export const Container = styled.aside`
-  overflow: scroll;
+  overflow-y: auto;
   height: 100%;
-  width: 200px;
+  width: 225px;
   background: var(--menu-color);
   color: var(--light-color);
 

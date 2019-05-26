@@ -1,0 +1,14 @@
+version: '3'
+services:
+  app:
+    image: maitre/app-cardapio
+    container_name: app-cardapio
+    build:
+      context: .
+      dockerfile: app.dockerfile
+    volumes:
+      - '.:/data'
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=development

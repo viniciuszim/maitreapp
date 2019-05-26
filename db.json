@@ -6,11 +6,11 @@
     },
     {
       "id": 2,
-      "name": "Mesa 02"
+      "name": "Mesa 022"
     },
     {
       "id": 3,
-      "name": "Mesa 03"
+      "name": "Mesa 031"
     }
   ],
   "menu": [
@@ -28,66 +28,6 @@
       "descricao": "CARTAS DE VINHOS",
       "iconfontawesome": "fas fa-wine-glass-alt",
       "idgrupomenu": "e96d2092-d8b4-4975-92ae-bc4c0c606c8a"
-    },
-    {
-      "descricao": "SOBREMESAS",
-      "iconfontawesome": "fas fa-ice-cream",
-      "idgrupomenu": "3413500c-f854-4b86-b70d-0a7bc3dcd12b"
-    },
-    {
-      "descricao": "SOBREMESAS",
-      "iconfontawesome": "fas fa-ice-cream",
-      "idgrupomenu": "3413500c-f854-4b86-b70d-0a7bc3dcd12b"
-    },
-    {
-      "descricao": "SOBREMESAS",
-      "iconfontawesome": "fas fa-ice-cream",
-      "idgrupomenu": "3413500c-f854-4b86-b70d-0a7bc3dcd12b"
-    },
-    {
-      "descricao": "SOBREMESAS",
-      "iconfontawesome": "fas fa-ice-cream",
-      "idgrupomenu": "3413500c-f854-4b86-b70d-0a7bc3dcd12b"
-    },
-    {
-      "descricao": "SOBREMESAS",
-      "iconfontawesome": "fas fa-ice-cream",
-      "idgrupomenu": "3413500c-f854-4b86-b70d-0a7bc3dcd12b"
-    },
-    {
-      "descricao": "SOBREMESAS",
-      "iconfontawesome": "fas fa-ice-cream",
-      "idgrupomenu": "3413500c-f854-4b86-b70d-0a7bc3dcd12b"
-    },
-    {
-      "descricao": "SOBREMESAS",
-      "iconfontawesome": "fas fa-ice-cream",
-      "idgrupomenu": "3413500c-f854-4b86-b70d-0a7bc3dcd12b"
-    },
-    {
-      "descricao": "SOBREMESAS",
-      "iconfontawesome": "fas fa-ice-cream",
-      "idgrupomenu": "3413500c-f854-4b86-b70d-0a7bc3dcd12b"
-    },
-    {
-      "descricao": "SOBREMESAS",
-      "iconfontawesome": "fas fa-ice-cream",
-      "idgrupomenu": "3413500c-f854-4b86-b70d-0a7bc3dcd12b"
-    },
-    {
-      "descricao": "SOBREMESAS",
-      "iconfontawesome": "fas fa-ice-cream",
-      "idgrupomenu": "3413500c-f854-4b86-b70d-0a7bc3dcd12b"
-    },
-    {
-      "descricao": "SOBREMESAS",
-      "iconfontawesome": "fas fa-ice-cream",
-      "idgrupomenu": "3413500c-f854-4b86-b70d-0a7bc3dcd12b"
-    },
-    {
-      "descricao": "SOBREMESAS",
-      "iconfontawesome": "fas fa-ice-cream",
-      "idgrupomenu": "3413500c-f854-4b86-b70d-0a7bc3dcd12b"
     },
     {
       "descricao": "SOBREMESAS",
