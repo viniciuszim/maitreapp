@@ -1,0 +1,10 @@
+version: '3.7'
+
+services:
+  prod:
+    container_name: app-cardapio-prod
+    build:
+      context: .
+      dockerfile: prod.dockerfile
+    ports:
+      - '81:80'

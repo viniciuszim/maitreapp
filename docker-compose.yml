@@ -5,7 +5,7 @@ services:
     container_name: app-cardapio
     build:
       context: .
-      dockerfile: app.dockerfile
+      dockerfile: dev.dockerfile
     volumes:
       - '.:/data'
     ports:
