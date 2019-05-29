@@ -24,6 +24,10 @@ export const Container = styled.div`
     color: var(--white-color);
     margin-bottom: 15px;
   }
+
+  .line-last {
+    border-bottom: none;
+  }
 `;
 
 export const BoxContainer = styled.div`
@@ -37,6 +41,7 @@ export const BoxContainer = styled.div`
   }
 
   i {
+    font-size: 16px;
     margin-right: 5px;
   }
   .infos {
@@ -63,6 +68,7 @@ export const ButtonsContainer = styled.div`
   height: 100%;
 
   button {
+    border-radius: 0px;
     margin-bottom: 0px;
   }
 `;

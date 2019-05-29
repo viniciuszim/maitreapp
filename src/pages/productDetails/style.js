@@ -55,6 +55,7 @@ export const ProductDetailsContainer = styled.div`
   }
 
   i {
+    font-size: 16px;
     margin-right: 5px;
   }
   .infos {

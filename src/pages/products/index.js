@@ -153,7 +153,9 @@ class Products extends Component {
                         </Col>
                       </Row>
                     </BoxContainer>
-                    <LineContainer />
+                    <LineContainer
+                      className={index + 1 === data.length ? 'line line-last' : 'line'}
+                    />
                   </Col>
                 </Row>
               ))}

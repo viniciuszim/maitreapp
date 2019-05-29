@@ -42,6 +42,16 @@ class Menu extends Component {
     }
   }
 
+  componentDidUpdate(prevProps) {
+    const { sidebar, getMenuRequest } = this.props;
+    const { sidebarSelected } = sidebar;
+    if (sidebarSelected !== null && prevProps.sidebar.sidebarSelected !== null) {
+      if (sidebarSelected.idgrupomenu !== prevProps.sidebar.sidebarSelected.idgrupomenu) {
+        getMenuRequest(sidebarSelected.idgrupomenu);
+      }
+    }
+  }
+
   handleMenuCall = (item) => {
     const {
       sidebar, getMenuRequest, selectMenuRequest, history,
