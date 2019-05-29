@@ -60,13 +60,13 @@ class ProductDetails extends Component {
             <Container>
               <ProductContainer>
                 <Row>
-                  <Col md="3">
+                  <Col md="4">
                     <img
                       src={`data:image/jpeg;base64,${productSelected.foto}`}
                       alt={productSelected.descricao}
                     />
                   </Col>
-                  <Col md="9">
+                  <Col md="8">
                     <ProductInfoContainer className="pl-md-4">
                       <ProductDetailsContainer>
                         <Row>

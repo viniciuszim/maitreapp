@@ -5,7 +5,8 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin: 40px;
+  padding: 30px 95px;
+  overflow-y: auto;
 
   h1 {
     color: var(--white-color);
@@ -22,7 +23,7 @@ export const ProductContainer = styled.div`
   .row {
     margin: 0px;
   }
-  div[class^="col"] {
+  div[class^='col'] {
     padding: 0px;
   }
 
@@ -58,6 +59,8 @@ export const ProductDetailsContainer = styled.div`
   }
   .infos {
     color: var(--dark-color);
+    font-style: italic;
+    font-size: 12px;
   }
   .detalhes {
     color: var(--white-color);

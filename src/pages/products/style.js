@@ -2,13 +2,23 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   flex: 1;
-  padding: 20px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 22px 95px;
+  overflow-y: auto;
+
+  /* Extra small devices (phones, less than 768px) */
+  @media (max-width: 768px) {
+    padding: 22px 30px;
+  }
 
   h1 {
     color: var(--white-color);
   }
   img {
     width: 100%;
+    height: 200px;
   }
   h2 {
     color: var(--white-color);
@@ -31,11 +41,19 @@ export const BoxContainer = styled.div`
   }
   .infos {
     color: var(--dark-color);
+    font-style: italic;
+    font-size: 12px;
   }
   .detalhes {
     color: var(--white-color);
     font-size: 12px;
   }
+`;
+
+export const LineContainer = styled.div`
+  margin-bottom: 30px;
+  border-bottom: 1px solid;
+  border-bottom-color: var(--secundary-color);
 `;
 
 export const ButtonsContainer = styled.div`
