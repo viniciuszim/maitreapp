@@ -73,6 +73,7 @@ export const SideDishContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  font-size: 12px;
 
   color: var(--white-color);
 
