@@ -22,8 +22,18 @@ export const Container = styled.div`
     height: 300px;
     margin-bottom: 10px;
   }
-  h2 {
+  span.description {
     color: var(--white-color);
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    text-overflow: ellipsis;
+    width: 100%;
+    font-size: 20px;
+    padding-top: 5px;
+  }
+  button.more-option {
+    font-weight: normal;
   }
 `;
 

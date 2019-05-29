@@ -87,8 +87,8 @@ class Menu extends Component {
                           </Col>
                         </Row>
                         <Row>
-                          <Col sm="6" className="text-left">
-                            <h2>{item.descricao}</h2>
+                          <Col sm="6" className="text-left" title={item.descricao}>
+                            <span className="description">{item.descricao}</span>
                           </Col>
                           {/* lg={{ span: 5, offset: 1 }} */}
                           <Col sm="6" className="text-right">
@@ -97,7 +97,7 @@ class Menu extends Component {
                               type="button"
                               size="md"
                               variant=""
-                              className="button greenButton"
+                              className="button more-option greenButton"
                               onClick={() => this.handleMenuCall(item)}
                             >
                               <i className="fas fa-plus-circle" />
