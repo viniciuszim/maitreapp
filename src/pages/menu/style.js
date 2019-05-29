@@ -9,7 +9,7 @@ export const Container = styled.div`
   align-content: flex-start; */
   /* padding: 20px 20px; */
   padding: 30px 100px 30px 0px;
-  overflow: scroll;
+  overflow-y: auto;
   height: 100%;
 
   /* Extra small devices (phones, less than 768px) */

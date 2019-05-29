@@ -34,6 +34,8 @@ export const LeftSide = styled.div`
   h1 {
     color: var(--white-color);
     flex: 1;
+    font-size: 1.5rem;
+    margin: 0;
   }
 `;
 

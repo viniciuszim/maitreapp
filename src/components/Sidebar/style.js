@@ -33,7 +33,7 @@ export const ClientLogo = styled.div`
 
   h3 {
     color: var(--white-color);
-    font-size: 15px;
+    font-size: 18px;
   }
 `;
 
@@ -48,13 +48,12 @@ export const Nav = styled.ul`
     a {
       color: inherit;
       text-decoration: none;
-      font-size: 12px;
+      font-size: 14px;
       line-height: 60px;
-      font-weight: bold;
 
       i {
         font-size: 20px;
-        margin-right: 10px;
+        width: 35px;
       }
     }
 
